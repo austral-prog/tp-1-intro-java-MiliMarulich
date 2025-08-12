@@ -13,6 +13,7 @@ class AppTest {
     public void testSum() {
         assertEquals(5, exercises.sum(2, 3));
         assertEquals(0, exercises.sum(-1, 1));
+
     }
 
     @Test
