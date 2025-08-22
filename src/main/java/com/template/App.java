@@ -84,14 +84,14 @@ public class App {
     // 8. Find the Smallest Element in an Array
     public int findMin(int[] array) {
         // TODO: Implement this method
-    int min = array[0];
-    for (int i = 1; i < array.length; i++) {
-        if (array[i] < min) {
-            min = array[i];
+        int min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
         }
+        return min;
     }
-    return min;
-}
 
     // 9. Sum of Elements in an Array
     public int arraySum(int[] array) {
@@ -111,67 +111,105 @@ public class App {
 
     // 11. Sum of Elements in a List
     public int sumList(List<Integer> list) {
-        // TODO: Implement this method
-        return 0;
+        int sum = 0;
+        for (int num : list) {
+            sum += num;
+        }
+        return sum;
     }
 
     // 12. Find the Largest Element in a List
     public int findMax(List<Integer> list) {
-        // TODO: Implement this method
-        return 0;
+        if (list.isEmpty()) {
+            throw new IllegalArgumentException("List cannot be empty"); //para exceptiond
+        }
+        int best = list.get(0); //para acceder a un elemento de la lista
+        for (int num : list) {
+            if (num > best) {
+                best = num;
+            }
+        }
+        return best;
     }
 
     // 13. Filter Even Numbers from a List
     public List<Integer> filterEvenNumbers(List<Integer> list) {
-        // TODO: Implement this method
-        return new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
+
+        for (int num : list) {
+            if (num % 2 == 0) {
+                result.add(num);
+            }
+        }
+        return result;
     }
 
     // 14. Concatenate Two Lists
     public List<String> concatenateLists(List<String> list1, List<String> list2) {
-        // TODO: Implement this method
-        return new ArrayList<>();
+        List<String> resultado = new ArrayList<>();
+        for (String str : list1) {
+            resultado.add(str);
+        }
+        for (String str : list2) {
+            resultado.add(str);
+        }
+        return resultado;
     }
 
     // 15. Check if List Contains Element
     public boolean listContains(List<String> list, String element) {
-        // TODO: Implement this method
+        for (String str : list) {
+            if (str == element) { //PARA VER SON IGUALES
+                return true;
+            }
+        }
         return false;
     }
 
     // 16. Convert Strings to Uppercase
     public List<String> toUpperCase(List<String> list) {
-        // TODO: Implement this method
-        return new ArrayList<>();
+        List<String> resultado = new ArrayList<>();
+        for (String str : list) {
+            resultado.add(str.toUpperCase());
+        }
+        return resultado;
     }
 
     // 17. Remove Duplicates from a List
     public List<Integer> removeDuplicates(List<Integer> list) {
-        // TODO: Implement this method
-        return new ArrayList<>();
+        Set<Integer> singleitems = new HashSet<>(list);
+        return new ArrayList<>(singleitems);
     }
 
     // 18. Convert List to Set for Unique Elements
     public Set<Integer> listToSet(List<Integer> list) {
-        // TODO: Implement this method
-        return new HashSet<>();
+        Set<Integer> singleitems = new HashSet<>(list);
+        return singleitems;
     }
 
     // 19. Check if Map Contains Key
     public boolean mapContainsKey(Map<String, String> map, String key) {
-        // TODO: Implement this method
-        return false;
+        return map.containsKey(key);
     }
 
     // 20. Check if Map Contains Value
     public boolean mapContainsValue(Map<String, String> map, String value) {
-        // TODO: Implement this method
-        return false;
+
+        return map.containsValue(value);
+
     }
 
     // 21. Iterate Over a Map
     public List<String> iterateMap(Map<String, String> map) {
-        // TODO: Implement this method
-        return new ArrayList<>();
+        if (map.isEmpty()) {
+            throw new IllegalArgumentException("Map cannot be empty");
+        }
+
+        List<String> newlist = new ArrayList<>();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            newlist.add(entry.getKey() + " -> " + entry.getValue()); // clave -> valor
+        }
+
+        return newlist;
     }
 }
